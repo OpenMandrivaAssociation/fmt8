@@ -5,7 +5,7 @@
 
 Name:		fmt
 Version:	5.3.0
-Release:	1
+Release:	2
 Summary:	Small, safe and fast formatting library
 Group:		Development/C++
 License:	BSD
@@ -48,9 +48,9 @@ This package contains the library for libfmt
 %files -n	%{devel}
 %{_includedir}/%{name}/
 %{_libdir}/cmake/%{name}/
-%{_libdir}/libfmt.so.%{major}
-%{_libdir}/libfmt.so.%{major}.%{minor}{,.*}
+%{_libdir}/libfmt.so
 %{_datadir}/pkgconfig/%{name}.pc
 
 %files -n	%{libname}
-%{_libdir}/libfmt.so
+%{_libdir}/libfmt.so.%{major}
+%{_libdir}/libfmt.so.%{major}.%{minor}{,.*}
