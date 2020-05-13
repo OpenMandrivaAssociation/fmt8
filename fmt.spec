@@ -1,11 +1,11 @@
-%define		major 5
-%define		minor 3
+%define		major 6
+%define		minor 2
 %define		libname %mklibname %{name} %{major}
 %define		devel %mklibname -d %{name}
 
 Name:		fmt
-Version:	5.3.0
-Release:	2
+Version:	6.2.1
+Release:	1
 Summary:	Small, safe and fast formatting library
 Group:		Development/C++
 License:	BSD
