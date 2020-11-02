@@ -1,10 +1,10 @@
 %define		major 7
-%define		minor 0
+%define		minor 1
 %define		libname %mklibname %{name} %{major}
 %define		devel %mklibname -d %{name}
 
 Name:		fmt
-Version:	7.0.3
+Version:	7.1.1
 Release:	1
 Summary:	Small, safe and fast formatting library
 Group:		Development/C++
