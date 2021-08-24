@@ -1,3 +1,5 @@
+%define _disable_lto 1
+
 %define		major 8
 %define		minor 1
 %define		libname %mklibname %{name} %{major}
