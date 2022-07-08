@@ -5,53 +5,44 @@
 %define		libname %mklibname %{name} %{major}
 %define		devel %mklibname -d %{name}
 
-Name:		fmt
+Name:		fmt8
 Version:	8.1.1
 Release:	1
 Summary:	Small, safe and fast formatting library
 Group:		Development/C++
 License:	BSD
 URL:		https://fmtlib.org
-Source0:	https://github.com/fmtlib/fmt/archive/%{version}/%{name}-%{version}.tar.gz
+Source0:	https://github.com/fmtlib/fmt/archive/%{version}/fmt-%{version}.tar.gz
 
 BuildRequires:	cmake
+BuildRequires:	ninja
 
 %description
 fmt is an open-source formatting library for C++. It can be used as a safe
 alternative to printf or as a fast alternative to IOStreams.
 
-%package -n	%{devel}
-Summary:	Development files for libfmt
-Group:		Development/C++
-Requires:	%{libname} = %{version}-%{release}
-Provides:	%{name}-devel
-
-%description -n	%{devel}
-This package contains the development header files, libraries
-and cmake files for libfmt
-
 %package -n	%{libname}
-Summary:	The libfmt libraries
+Summary:	Old version of the libfmt libraries
 Group:		Development/C++
 
 %description -n	%{libname}
-This package contains the library for libfmt
+This package contains the old version 8 of the library for libfmt
 
 %prep
-%autosetup
+%autosetup -n fmt-%{version}
+%cmake -G Ninja
 
 %build
-%cmake
-%make_build
+%ninja_build -C build
 
 %install
-%make_install -C build
+%ninja_install -C build
 
-%files -n	%{devel}
-%{_includedir}/%{name}/
-%{_libdir}/cmake/%{name}/
-%{_libdir}/libfmt.so
-%{_libdir}/pkgconfig/%{name}.pc
+# No -devel stuff for pure compat packages
+rm -rf %{buildroot}%{_includedir} \
+	%{buildroot}%{_libdir}/cmake \
+	%{buildroot}%{_libdir}/pkgconfig \
+	%{buildroot}%{_libdir}/*.so
 
 %files -n	%{libname}
 %{_libdir}/libfmt.so.%{major}
