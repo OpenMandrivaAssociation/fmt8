@@ -7,7 +7,7 @@
 
 Name:		fmt8
 Version:	8.1.1
-Release:	1
+Release:	2
 Summary:	Small, safe and fast formatting library
 Group:		Development/C++
 License:	BSD
